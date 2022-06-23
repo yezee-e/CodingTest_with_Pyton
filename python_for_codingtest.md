@@ -370,7 +370,8 @@ while문과 for문이 있다 (다만, 코딩테스트에서의 실제 사용 예
 * **while**   
 무한루프란 끊임없이 반복되는 반복 구문을 의미   
 코딩테스트에서 구현할 일은 거의 없음   
-반복문을 작성한 뒤에는 항상 반복문을 탈출할 수 있는지 확인   
+반복문을 작성한 뒤에는 항상 반복문을 탈출할 수 있는지 확인     
+<br/>
 
 * **for문**   
 특정한 변수를 이용하여 "in"뒤에 오는 데이터(리스트, 튜플 등)에 포함되어 있는 원소를 첫번째 인덱스부터 차례대로 하나씩 방문   
@@ -379,22 +380,237 @@ while문과 for문이 있다 (다만, 코딩테스트에서의 실제 사용 예
     실행할 소스코드
   ```
   
-for문에서 연속적인 값을 차례대로 순회할때는 range()를 주로 사용    
+  for문에서 연속적인 값을 차례대로 순회할때는 range()를 주로 사용    
     + 이때 range(시작값, 끝값+1)형태로 사용     
     + 인자를 하나만 넣으면 자동으로 시작 값은 0   
 
-파이썬의 continue -> 반복문에서 남은 코드의 실행을 건너뛰고, 다음 반복을 진행하고자 할때 continue를 사용   
+  파이썬의 continue -> 반복문에서 남은 코드의 실행을 건너뛰고, 다음 반복을 진행하고자 할때 continue를 사용   
 
-파이썬의 break -> 반복문을 즉시 탈출하고자 할때 break사용
+  파이썬의 break -> 반복문을 즉시 탈출하고자 할때 break사용
 
+# 함수와 람다 표현식
 
+### 🚀함수
+***
+함수란 특정한 작업을 하나의 단위로 묶어 놓은 것을 의미   
 
+함수를 사용하면 불필요한 소스코드의 반복을 줄일 수 있다
+ * **내장함수**: 파이썬이 기본적으로 제공하는 함수
+ * **사용자 정의 함수**: 개발자가 직접 정의하여 사용할 수 있는 함수 
 
+ <br/>
 
+함수를 사용하면 소스코드의 길이를 줄일 수 있다
+ + **매개변수**: 함수 내부에서 사용할 변수(파라미터)
+ + **반환 값**: 함수에서 처리 된 결과를 반환
+ ```py
+ def 함수명(매개변수):
+    실행할 소스코드
+    return 반환 값
+```
+<br/>
 
+더하기 함수 예시 1)
+```py
+def add(a,b):
+    return a+b
 
+print(add(3,7)) #10
+
+```
+더하기 함수 예시 2)
+```py
+def add(a,b):
+    print("함수의 결과", a+b) #함수의 결과:10
+
+add(3,7)
+
+```
+<br/>
+
+ **파라미터의 변수를 직접 지정**할 수 있다   
+  (이경우 매개변수의 순서가 달라져도 상관없음)
+  ```py
+  def add(a,b):
+    print("함수의 결과", a+b) #함수의결과:10
+
+   add(b=3,a=7) 
+  ```
+<br/>
+
+**global키워드**로 변수를 지정하면 해당 함수에서는 지역변수를 만들지 않고, 함수 바깥에 선언된 변수를 바로 참조
+```py
+a=0
+
+def func():
+    global a
+    a+=1
     
+    for i in range(10):
+        func()
+    print(a) #10
+```
+<br/>
+
+파이썬에서 함수는 **여러개의 반환값**을 가질 수 있다  -->**패킹**  
+```py
+def operator(a,b):
+    add_var=a+b
+    subtract_var=a-b
+    multiply_var=a*b
+    divide_var=a/b
+    return add_var,subtract_var,multiply_var,divide_var
+
+a,b,c,d =operator(7,3) #return된 각각의 결과들이 차례대로 a,b,c,d에 담김 
+print(a,b,c,d) 
+```
+
+### 🚀람다 표현식 
+***  
+함수를 간단하게 작성가능   
+특정한 기능을 수행하는 함수를 한 줄에 작성할 수 있다는 점이 특징
+```py
+def add(a,b):
+    return a+b
+
+    #일반적인 add()메서드 사용
+    print(add(3,7))
+
+    #림다 표현식으로 구현한 add()메서드
+    print((lambda a,b:a+b)(3,7))
+```
+```py
+list1=[1,2,3,4,5]
+list2=[6,7,8,9,10]
+
+result=map(lambda a,b: a+b,list1,list2)
+
+print(list(result)) #[7,9,11,13,15]
+```
+<br/>
+
+# 실전에서 유용한 표준 라이브러리
+
+🌟**내장함수:** 기본 입출력 함수부터 정렬 함수까지 기본적인 함수들을 제공
+
+🌟**itertools:** 파이썬에서 반복되는 형태의 데이터를 처리하기 위한 유용한 기능을 제공
+                  특히, 순영과 조합 라이브러리는 코딩테스트에서 자주 사용   
+
+🌟**heapq:** 힙(heap) 자료구조를 제공   
+              일반적으로 우선순위 큐 기능을 구현하기 위해 사용   
+            
+🌟**bisect:** 이진탐색기능을 제공
+
+🌟**collection:** 덱(deque),카운터(counter)등의 유용한 자료구조를 포함
+
+🌟**math:** 필수적인 수학적 기능을 제공
+             팩토리얼,제곱근,최대공약수,삼각함수 관련 함수부터 파이와 같은 상수를 포함   
 
 
+
+* **내장함수**
+```py
+#sum()
+result =sum([1,2,3,4,5])
+print(result) #15
+
+#min(),max()
+min_result =min(7,3,5,2)
+max_result =max(7,3,5,2)
+print(min_result,max_result) #2, 7
+
+#eval()
+result =eval("(3+5)*7")
+print(result) #56
+
+#sorted()
+result =sorted([9,1,8,5,4])
+reverse_result=sorted([9,1,8,5,4],reverse=True)
+print(result) #[1,4,5,8,9]
+print(reverse_result) #[9,8,5,4,1]
+
+#sorted()with key
+array=[('이순신',75),('이순신',75),('이순신',75)]
+result =sorted(array,key=lambda x:x[1],reverse=True) # x:x[1] ->각원소에서 두번째 원소를 기준으로 정렬을 수행
+print(result) #[('이순신',75),('이순신',75),('이순신',75)]
+
+```
+
+
+<br/>
+
+모든 경우의 수를 고려해야 할 때 어떤 라이브러리를 효과적으로 사용할 수 있을까?
+
+* **순열:** 서로 다른 n개에서 서로 다른 r개를 선택하여 일렬로 나열   
+        {'A','B','C'}에서 세 개를 선택하여 나열하는 경우 :'ABC','ACB','BAC','BCA','CAB','CBA'
+
+
+ ```py
+        #순열
+        from intertools import permutations
+
+        data=['A','B','C'] #데이터 준비
+
+        result =list(permutations(data,3)) #모든순열구하기
+        print(result) #[('A','B','C'),('A','C','B'),('B','A','C'),('B','C','A'),('C','A','B'),('C','B','A')]
+
+ ```
+
+ ```py
+         #중복순열 
+        from intertools import product
+
+        data=['A','B','C'] #데이터 준비
+
+        result =list(product(data,repeat=2)) #2개를 뽑는 모든 순열 구하기 (중복허용)
+        print(result)
+
+ ```
+
+
+* **조합** 서로 다른 n개의 순서에 상과없이 서로다른 r개를 선택하는 것   
+         {'A','B','C'}에서 순서를 고려하지 않고 두개를 뽑는 경우: 'AB','AC','BC'
+
+```py
+        #조합
+        from intertools import combinations
+
+        data=['A','B','C'] #데이터 준비
+
+        result =list(combinations(data,2)) #2개를뽑는모든조합구하기
+        print(result) #[('A','B'),('A','C'),('B','C')]
+
+ ```
+
+ ```py
+        #중복조합
+        from intertools import combinations_with_replacement
+
+        data=['A','B','C'] #데이터 준비
+
+        result =list(combinations_with_replacement(data,2)) #2개를뽑는모든조합구하기(중복허용)
+        print(result) 
+
+ ```
+
+![순열과조합](pic/순열과 조합.png)
+
+* **Counter** collections라이브러리의 Counter는 등장 횟수를 세는 기능제공
+              리스트와 같은 반복 가능한 객체가 주어졌을 때 내부의 원소가 몇 번씩 등장했는지를 알려줌
+
+             ```py
+            from collections import Counter
+
+            counter =Counter(['red','blue','red','green','blue','blue'])
+
+            print(counter['blue']) #'blue'가 등장한 횟수 출력
+            print(counter['green']) #'green'이 등장한 횟수 출력
+            print(dict(counter)) #사전 자료형으로 반환
+
+            #3
+            #1
+            #{'red':2,'blue':4,'green':1}
+
+             ```
 
 
