@@ -538,6 +538,21 @@ print(result) #[('이순신',75),('이순신',75),('이순신',75)]
 
 ```
 
+toupper(c): c가 영문 소문자일때 영문 대문자로 변환   
+tolower(c): c가 영문 대문자일때 영문 소문자로 변환   
+_toupper(c): 무조건 영문 대문자로 변환   
+_tolower(c): 무조건 영문 소문자로 변환   
+
+isalph(char):영문자 검사   
+isupper(char):영문 대문자 검사   
+isdigit(char):숫자 0-9 를 검사   
+isxdigit(char): 16 진수 숫자를 검사   
+
+isspace(char): 공백문자를 검사   
+ispunct(char): 숫자와 문자를 검사   
+
+toascii(char):아스키코드로 변환   
+
 
 <br/>
 
