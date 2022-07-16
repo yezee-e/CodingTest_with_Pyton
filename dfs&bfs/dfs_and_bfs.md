@@ -97,7 +97,7 @@ print(queue) #나중에 들어온 원소부터 출력
     recursive_function()
 ```
 
-* 재귀함수를 문제풀이에서 사용할 때는 재귀 함수의 종료 조거을 반드시 명시
+* 재귀함수를 문제풀이에서 사용할 때는 재귀 함수의 종료 조건을 반드시 명시
 * 종료 조건을 제대로 명시하지 않으면 함수가 무한히 호출
 
  ```py
@@ -150,7 +150,7 @@ print('재귀적으로 구현:',factorial_recursive(5) ) #재귀적으로 구현
     * 이때 A와 B의 최대공약수는 B와 R의 최대공약수와 같다
 * 유클리드 호제법의 아이디어를 그대로 재귀 함수로 작성할 수 있다
     예시: GCD(192,162) ->GCD는 최대공약수를 의미   
-<img src=pic\최대공약수.png width=50%></img> 
+<img src=/Users/blair/Desktop/코코/GitHub/CodingTest_with_Pyton/pic/최대공약수.png width=50%></img> 
 
 ```py
 def gcd(a,b):
@@ -191,35 +191,36 @@ print(gcd(192,162))
 
     [step 1] 
     : 시작노드인 '1'을 스택에 삽입하고 방문 처리      
-            <img src=pic\step1.png width=55%></img>     
+            <img src=/Users/blair/Desktop/코코/GitHub/CodingTest_with_Pyton/pic/step1.png width=55%></img>     
+            
 
     [step 2] 
     :스택의 최상단 노드인 '1'에 방문하지 않은 인접노드 '2', '3', '8'이 있다    
     이중에서 가장 작은 노드인 '2'를 스택에 넣고 방문처리    
-            <img src=pic\step2.png width=55%></img> 
+            <img src=/Users/blair/Desktop/코코/GitHub/CodingTest_with_Pyton/pic/step2.png width=55%></img> 
 
     [step 3] 
     :스택의 최상단 노드인 '2'에 방문하지 않은 인접노드 '7'이 있다  
     따라서 '7'번 노드를 스택에 넣고 방문처리    
-        <img src=pic\step3.png width=55%></img> 
+        <img src=/Users/blair/Desktop/코코/GitHub/CodingTest_with_Pyton/pic/step3.png width=55%></img> 
 
     [step 4]   
     :스택의 최상단 노드인 '7'에 방문하지 않은 인접노드 '6','8'이 있다   
     이중에서 가장 작은 노드인 '6'을 스택에 넣고 방문처리  
-        <img src=pic\step4.png width=55%></img> 
+        <img src=/Users/blair/Desktop/코코/GitHub/CodingTest_with_Pyton/pic/큐4.png width=55%></img> 
 
     [step 5]   
     :스택의 최상단 노드인 '6'에 방분하지 않은 인접 노드가 없습니다   
     따라서 스택에서 '6'번 노드를 꺼냅니다   
-    <img src=pic\step5.png width=55%></img> 
+    <img src=/Users/blair/Desktop/코코/GitHub/CodingTest_with_Pyton/pic/step5.png width=55%></img> 
 
     [step 6]   
     :스택의 최상단 노드인 '7'에 방문하지 않은 인접 노드 '8'이 있다   
     따라서 '8'번 노드를 스택에 넣고 방문처리   
-        <img src=pic\step6.png width=55%></img> 
+        <img src=/Users/blair/Desktop/코코/GitHub/CodingTest_with_Pyton/pic/step6.png width=55%></img> 
 
     -> 이러한 과정을 반복했을때 **전체 노드의 탐색 순서**(스택에 들어간 순서)는 다음과 같다
-         <img src=pic\step동작예시.png width=55%></img>    
+         <img src=/Users/blair/Desktop/코코/GitHub/CodingTest_with_Pyton/pic/step동작예시.png width=55%></img>    
 
 * DFS소스코드 예제
 ```py
@@ -274,29 +275,29 @@ dfs(graph, 1, visited) #1 2 7 6 8 3 4 5
 
     [step 1] 
     : 시작노드인 '1'을 큐에 삽입하고 방문 처리      
-            <img src=pic\step1.png width=55%></img>     
+            <img src=/Users/blair/Desktop/코코/GitHub/CodingTest_with_Pyton/pic/step1.png width=55%></img>     
 
     [step 2] 
     :큐에서 노드 '1'을 꺼내 방문하지 않은 인접 노드 '2', '3', '8'을 큐에 삽입하고 방문처리    
-            <img src=pic\큐2.png width=55%></img> 
+            <img src=/Users/blair/Desktop/코코/GitHub/CodingTest_with_Pyton/pic/큐2.png width=55%></img> 
 
     [step 3] 
     :큐에서 노드 '2'를 꺼내 방문하지 않은 인접 노드 '7'을 큐에 삽입하고 방문처리   
-        <img src=pic\큐3.png width=55%></img> 
+        <img src=/Users/blair/Desktop/코코/GitHub/CodingTest_with_Pyton/pic/큐3.png width=55%></img> 
 
     [step 4]   
     :큐에서 노드 '3'을 꺼내 방문하지 않은 인접노드 '4', '5'를 큐에 삽입하고 방문처리  
-        <img src=pic\큐4.png width=55%></img> 
+        <img src=/Users/blair/Desktop/코코/GitHub/CodingTest_with_Pyton/pic/큐4.png width=55%></img> 
 
     [step 5]   
-    :큐에서 노드 '8'을 꺼내고 방문하지 않은 인접 노드가 없으므로 무시   
-    <img src=pic\큐5.png width=55%></img> 
+    :큐에서 노드 '8'을 꺼내s고 방문하지 않은 인접 노드가 없으므로 무시   
+    <img src=/Users/blair/Desktop/코코/GitHub/CodingTest_with_Pyton/pic/큐5.png width=55%></img> 
 
   
 
     -> 이러한 과정을 반복했을때 **전체 노드의 탐색 순서**(큐에 들어간 순서)는    
     다음과 같다   
-         <img src=pic\bfs동작예시.png width=55%></img>   
+         <img src=/Users/blair/Desktop/코코/GitHub/CodingTest_with_Pyton/pic/bfs동작예시.png width=55%></img>   
 
 
 * BFS 소스코드 예제
