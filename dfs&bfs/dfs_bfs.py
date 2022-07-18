@@ -30,9 +30,6 @@ dfs(graph,1,visited)
 
 
 
-
-
-
 #BFS소스코드 예제
 from collections import deque
 
@@ -70,3 +67,5 @@ def bfs(graph, start, visited):
 
 #정의된 dfs 함수 호출
 bfs(graph,1,visited)
+
+
